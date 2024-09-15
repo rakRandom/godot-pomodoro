@@ -1,0 +1,262 @@
+[gd_scene load_steps=19 format=3 uid="uid://cj3nwh470x0tk"]
+
+[ext_resource type="Script" path="res://scenes/main.gd" id="1_75bpd"]
+[ext_resource type="AudioStream" uid="uid://fwrnvu48g1ig" path="res://assets/audio/alarm-beep.mp3" id="2_r106p"]
+[ext_resource type="AudioStream" uid="uid://37f138d2vtvy" path="res://assets/audio/tick.mp3" id="3_458al"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5xlao"]
+bg_color = Color(0.134115, 0.545001, 0.271486, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yv26i"]
+bg_color = Color(0.117686, 0.486279, 0.240268, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8e5dn"]
+bg_color = Color(0.12549, 0.513726, 0.254902, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1t0dq"]
+bg_color = Color(0.12549, 0.12549, 0.12549, 0.866667)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ky1ra"]
+bg_color = Color(0.12549, 0.12549, 0.12549, 0.866667)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_scb3v"]
+bg_color = Color(0.156863, 0.156863, 0.156863, 1)
+corner_radius_top_left = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cw21n"]
+bg_color = Color(0.188235, 0.188235, 0.188235, 1)
+corner_radius_top_left = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6onda"]
+bg_color = Color(0.12549, 0.12549, 0.12549, 1)
+corner_radius_top_left = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j0tyy"]
+bg_color = Color(0.156863, 0.156863, 0.156863, 1)
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fm2mw"]
+bg_color = Color(0.188235, 0.188235, 0.188235, 1)
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oea5t"]
+bg_color = Color(0.12549, 0.12549, 0.12549, 1)
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xf0b5"]
+bg_color = Color(0.617458, 0.0325748, 0.0838376, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lsft4"]
+bg_color = Color(0.552421, 0.0245851, 0.0693355, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wlgv1"]
+bg_color = Color(0.572549, 0.027451, 0.0745098, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_itk5x"]
+bg_color = Color(0.12549, 0.12549, 0.12549, 0.866667)
+border_width_bottom = 4
+border_color = Color(0.866667, 0.866667, 0.866667, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_75bpd")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="Idle" type="Control" parent="Panel"]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="Start" type="Button" parent="Panel/Idle"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 426.0
+offset_top = -148.0
+offset_right = -426.0
+offset_bottom = -73.0
+grow_horizontal = 2
+grow_vertical = 0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 32
+theme_override_styles/hover = SubResource("StyleBoxFlat_5xlao")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_yv26i")
+theme_override_styles/normal = SubResource("StyleBoxFlat_8e5dn")
+text = "Start"
+
+[node name="Input" type="LineEdit" parent="Panel/Idle"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 501.0
+offset_top = -248.0
+offset_right = -501.0
+offset_bottom = -173.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 36
+theme_override_styles/focus = SubResource("StyleBoxFlat_1t0dq")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ky1ra")
+text = "900"
+alignment = 1
+max_length = 4
+
+[node name="Plus" type="Button" parent="Panel/Idle"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 426.0
+offset_top = -248.0
+offset_right = -651.0
+offset_bottom = -173.0
+grow_horizontal = 2
+grow_vertical = 0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 48
+theme_override_styles/hover = SubResource("StyleBoxFlat_scb3v")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cw21n")
+theme_override_styles/normal = SubResource("StyleBoxFlat_6onda")
+text = "+"
+
+[node name="Minus" type="Button" parent="Panel/Idle"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 651.0
+offset_top = -248.0
+offset_right = -426.0
+offset_bottom = -173.0
+grow_horizontal = 2
+grow_vertical = 0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 48
+theme_override_styles/hover = SubResource("StyleBoxFlat_j0tyy")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fm2mw")
+theme_override_styles/normal = SubResource("StyleBoxFlat_oea5t")
+text = "-"
+
+[node name="Streak" type="Label" parent="Panel/Idle"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 17.0
+offset_top = 11.0
+offset_right = 1135.0
+offset_bottom = 44.0
+theme_override_font_sizes/font_size = 16
+text = "Time Streak: 0 minutes and 0 seconds"
+
+[node name="Running" type="Control" parent="Panel"]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="Stop" type="Button" parent="Panel/Running"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 501.0
+offset_top = -143.0
+offset_right = -501.0
+offset_bottom = -78.0
+grow_horizontal = 2
+grow_vertical = 0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 32
+theme_override_styles/hover = SubResource("StyleBoxFlat_xf0b5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lsft4")
+theme_override_styles/normal = SubResource("StyleBoxFlat_wlgv1")
+text = "Stop"
+
+[node name="Time" type="Label" parent="Panel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.363
+anchor_right = 1.0
+anchor_bottom = 0.363
+offset_left = 250.0
+offset_top = -110.224
+offset_right = -250.0
+offset_bottom = 110.776
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 156
+theme_override_styles/normal = SubResource("StyleBoxFlat_itk5x")
+text = "00:00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Beep" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("2_r106p")
+parameters/looping = true
+
+[node name="Tick" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("3_458al")
+
+[connection signal="pressed" from="Panel/Idle/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Panel/Idle/Plus" to="." method="_on_plus_pressed"]
+[connection signal="pressed" from="Panel/Idle/Minus" to="." method="_on_minus_pressed"]
+[connection signal="pressed" from="Panel/Running/Stop" to="." method="_on_stop_pressed"]
