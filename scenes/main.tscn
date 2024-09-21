@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://cj3nwh470x0tk"]
+[gd_scene load_steps=22 format=3 uid="uid://cj3nwh470x0tk"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_75bpd"]
+[ext_resource type="Texture2D" uid="uid://omt7xuti7qy0" path="res://assets/settings.svg" id="2_lkp45"]
 [ext_resource type="AudioStream" uid="uid://fwrnvu48g1ig" path="res://assets/audio/alarm-beep.mp3" id="2_r106p"]
 [ext_resource type="AudioStream" uid="uid://37f138d2vtvy" path="res://assets/audio/tick.mp3" id="3_458al"]
 
@@ -23,14 +24,14 @@ corner_radius_bottom_right = 15
 corner_radius_bottom_left = 15
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5bttv"]
-bg_color = Color(0.784314, 0, 0, 0.894118)
+bg_color = Color(0.894118, 0, 0, 0.894118)
 corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tfj3i"]
-bg_color = Color(0.784314, 0, 0, 0.894118)
+bg_color = Color(0.894118, 0, 0, 0.894118)
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
@@ -46,6 +47,23 @@ corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i6hgb"]
+bg_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1vfgd"]
+bg_color = Color(0, 0, 0, 0.25098)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mesny"]
+bg_color = Color(2.45467e-06, 0.640976, 0.369139, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0ovcr"]
 bg_color = Color(0, 0, 0, 0.12549)
@@ -76,6 +94,9 @@ border_color = Color(0, 0, 0, 0)
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1njan"]
+bg_color = Color(0, 0, 0, 0.0627451)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ati1"]
 bg_color = Color(0.0894119, 0.133878, 0.182047, 1)
 border_width_left = 5
@@ -89,7 +110,43 @@ corner_radius_bottom_right = 15
 corner_radius_bottom_left = 15
 shadow_color = Color(0.0892042, 0.0974322, 0.10566, 0.0784314)
 shadow_size = 15
-shadow_offset = Vector2(0, 15)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b6ysi"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(1, 1, 1, 0.25098)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8v461"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(1, 1, 1, 0.12549)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fnri1"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0, 0, 0, 0.25098)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -115,6 +172,7 @@ offset_bottom = 80.0
 grow_horizontal = 2
 
 [node name="StreakLabel" type="Label" parent="MainPanel/Header"]
+unique_name_in_owner = true
 layout_mode = 1
 offset_left = 15.0
 offset_top = 20.0
@@ -126,6 +184,7 @@ text = "Streak: 00:00"
 vertical_alignment = 1
 
 [node name="CurrentStageLabel" type="Label" parent="MainPanel/Header"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -141,6 +200,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ResetButton" type="Button" parent="MainPanel/Header"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -166,8 +226,23 @@ offset_top = 106.0
 offset_right = -239.0
 offset_bottom = 151.0
 grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_i6hgb")
+
+[node name="CycleProgressBar" type="ProgressBar" parent="MainPanel/CyclePanel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_1vfgd")
+theme_override_styles/fill = SubResource("StyleBoxFlat_mesny")
+max_value = 70.0
+show_percentage = false
 
 [node name="TimerLabel" type="Label" parent="MainPanel"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -183,6 +258,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ProgressBar" type="ProgressBar" parent="MainPanel"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -193,10 +269,10 @@ offset_bottom = 449.0
 grow_horizontal = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_gxhih")
 theme_override_styles/fill = SubResource("StyleBoxFlat_eevdb")
-value = 50.0
 show_percentage = false
 
 [node name="MainButton" type="Button" parent="MainPanel"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -212,41 +288,151 @@ focus_mode = 0
 mouse_default_cursor_shape = 2
 text = "Start"
 
-[node name="ConfigButton" type="Button" parent="MainPanel"]
+[node name="ConfigPanel" type="Panel" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1njan")
+
+[node name="SubPanel" type="Panel" parent="ConfigPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 338.0
+offset_top = 189.0
+offset_right = -338.0
+offset_bottom = -189.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8ati1")
+
+[node name="Title" type="Label" parent="ConfigPanel/SubPanel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 24.0
+offset_bottom = 58.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 24
+text = "Configurations"
+horizontal_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="ConfigPanel/SubPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 37.0
+offset_top = 77.0
+offset_right = -37.0
+offset_bottom = -90.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 20
+columns = 2
+
+[node name="FocusInputLabel" type="Label" parent="ConfigPanel/SubPanel/GridContainer"]
+layout_mode = 2
+text = "Focus time (min):"
+
+[node name="FocusInput" type="SpinBox" parent="ConfigPanel/SubPanel/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 1
+value = 25.0
+alignment = 2
+
+[node name="LongInputLabel" type="Label" parent="ConfigPanel/SubPanel/GridContainer"]
+layout_mode = 2
+text = "Long break time (min):"
+
+[node name="LongInput" type="SpinBox" parent="ConfigPanel/SubPanel/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 1
+min_value = 5.0
+value = 15.0
+alignment = 2
+
+[node name="ShortInputLabel" type="Label" parent="ConfigPanel/SubPanel/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Short break time (min):"
+
+[node name="ShortInput" type="SpinBox" parent="ConfigPanel/SubPanel/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 1
+max_value = 15.0
+value = 5.0
+alignment = 2
+
+[node name="SaveButton" type="Button" parent="ConfigPanel/SubPanel"]
+layout_mode = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 37.0
+offset_top = -55.0
+offset_right = 137.0
+offset_bottom = -24.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+text = "Save"
+
+[node name="ResetDefaultButton" type="Button" parent="ConfigPanel/SubPanel"]
+layout_mode = 2
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -213.0
+offset_top = -55.0
+offset_right = -38.0
+offset_bottom = -24.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+text = "Reset to default"
+
+[node name="ConfigButton" type="Button" parent="."]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -57.0
-offset_top = -57.0
+offset_left = -67.0
+offset_top = -67.0
 offset_right = -17.0
 offset_bottom = -17.0
 grow_horizontal = 0
 grow_vertical = 0
 focus_mode = 0
 mouse_default_cursor_shape = 2
-
-[node name="ConfigPanel" type="Panel" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 216.0
-offset_top = 104.0
-offset_right = -216.0
-offset_bottom = -104.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_8ati1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_b6ysi")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8v461")
+theme_override_styles/normal = SubResource("StyleBoxFlat_fnri1")
+icon = ExtResource("2_lkp45")
+icon_alignment = 1
+expand_icon = true
 
 [node name="BeepSound" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("2_r106p")
-parameters/looping = true
 
 [node name="TickSound" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("3_458al")
+
+[connection signal="pressed" from="MainPanel/Header/ResetButton" to="." method="_on_reset_button_pressed"]
+[connection signal="pressed" from="MainPanel/MainButton" to="." method="_on_main_button_pressed"]
+[connection signal="pressed" from="ConfigPanel/SubPanel/SaveButton" to="." method="_on_save_button_pressed"]
+[connection signal="pressed" from="ConfigPanel/SubPanel/ResetDefaultButton" to="." method="_on_reset_default_button_pressed"]
+[connection signal="pressed" from="ConfigButton" to="." method="_on_config_button_pressed"]
